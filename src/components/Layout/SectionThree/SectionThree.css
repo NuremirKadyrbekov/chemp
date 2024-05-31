@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 80px;
 }
 
 .sectionthree__title {
@@ -14,6 +15,7 @@
 }
 
 .sectionthree__text {
+  padding-top: 20px;
   color: rgba(22, 28, 45, 1);
   font-size: 19px;
   font-weight: 400;
@@ -23,18 +25,53 @@
 }
 
 .sectionthree__cards {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 150px;
 }
 
 .sectionthree__card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
 }
 
-.sectionthree__card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.sectionthree__card div {
+  border-radius: 50%;
+  width: 73px;
+  height: 73px;
+  display: flex;
+  justify-content:center ;
+  align-items: center;
+  color: white;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 48px;
+  letter-spacing: -1.2000000476837158px;
+}
+
+.sectionthree__card h3 {
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: -0.5px;
+  padding-top: 30px;
+}
+
+.sectionthree__card p {
+  text-align: center;
+  font-size: 17px;
+  line-height: 29px;
+  letter-spacing: -0.20000000298023224px;
+}
+
+.one div{
+  background: rgba(246, 75, 75, 1);
+}
+.two div{
+  background: rgba(104, 213, 133, 1);
+}
+.three div{
+  background: rgba(71, 59, 240, 1);
 }

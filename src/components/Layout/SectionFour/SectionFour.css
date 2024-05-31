@@ -1,0 +1,51 @@
+.sectionfour {
+  background: linear-gradient(225deg, #313c59 0%, #161c2d 100%);
+}
+
+.sectionfour__body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.sectionfour__title {
+  color: white;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 44px;
+  letter-spacing: -1.2000000476837158px;
+  text-align: center;
+}
+
+.sectionfour__comments {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sectionfour__comment {
+  padding: 20px 30px;
+  background-color: white;
+  border-radius: 5px;
+  max-width: 730px;
+  max-height: 199px;
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.sectionfour__comment p {
+  font-size: 21px;
+  line-height: 32px;
+  letter-spacing: -0.5px;
+}
+
+.sectionfour__comment span {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 29px;
+  letter-spacing: -0.20000000298023224px;
+  text-align: left;
+}
