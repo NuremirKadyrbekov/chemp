@@ -20,3 +20,13 @@
   padding-top: 110px;
   display: flex;
 }
+
+@media (max-width: 1050px) {
+  .header__content {
+    display: flex;
+    justify-content: center;
+  }
+  .header {
+    height: 860px;
+  }
+}

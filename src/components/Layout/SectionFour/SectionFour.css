@@ -54,10 +54,46 @@
   text-align: left;
 }
 
+.sectionfour__comment img {
+  display: block;
+}
+
 .sectionfour__all {
   font-size: 17px;
   font-weight: 700;
   line-height: 32px;
   letter-spacing: -0.6000000238418579px;
   color: rgba(104, 213, 133, 1);
+}
+
+.sectionfour__video img{
+  max-width: 100%;
+  display: block;
+}
+
+@media (max-width: 510px) {
+  .sectionfour__comment p {
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.5px;
+  }
+  
+  .sectionfour__comment span {
+    font-size: 12px;
+    line-height: 22x;
+  }
+}
+
+@media (max-width: 370px) {
+  .sectionfour__comment img {
+    width: 32px;
+    
+  }
+  .sectionfour__comment p {
+    font-size: 12px;
+  }
+  
+  .sectionfour__comment span {
+    font-size: 12px;
+  }
 }

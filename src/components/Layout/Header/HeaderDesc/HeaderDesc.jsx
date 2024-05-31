@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import "./HeaderDesc.css";
 import h2 from '../../../../sources/images/h_2.png'
 import { checkAuthState, auth } from '../../../../firebase';
-
-
+import PaymentModal from "../../../Payment/Payment";
 
 const HeaderDesc = () => {
   const [user, setUser]= useState(null)
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
@@ -14,6 +15,17 @@ const HeaderDesc = () => {
     }
     checkAuthState(setUser);
   }, []);
+
+
+  
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <div className="headerdesc">
@@ -30,9 +42,9 @@ const HeaderDesc = () => {
           {
             user?  <button className="headerdesc__button">Начать сейчас</button> : <button className="headerdesc__button" style={{backgroundColor:'rgb(213, 197, 207)', cursor:'no-drop'}} >Начать сейчас</button>
           }
-         
 
-          <img className='headerimgs__h2' src={h2} alt="" />
+          <img className="headerimgs__h2" src={h2} alt="" />
+          {isModalOpen && <PaymentModal onClose={handleCloseModal} />}
         </div>
       </div>
     </div>
