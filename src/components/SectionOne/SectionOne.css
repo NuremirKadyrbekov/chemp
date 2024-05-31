@@ -1,0 +1,35 @@
+.sectionone__body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+}
+
+.sectionone__images {
+  display: flex;
+  align-items: center;
+}
+
+.sectionone__double {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sectionone__title {
+  padding-bottom: 20px;
+  font-size: 31px;
+  font-weight: 700;
+  line-height: 35px;
+  color: rgba(22, 28, 45, 1);
+}
+
+.sectionone__text {
+  font-size: 19px;
+  line-height: 32px;
+  letter-spacing: -0.20000000298023224px;
+}
+
+.sectionone__cart {
+  position: absolute;
+}
