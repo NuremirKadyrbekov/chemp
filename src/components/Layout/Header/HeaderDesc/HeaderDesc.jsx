@@ -7,7 +7,7 @@ import PaymentModal from "../../../Payment/Payment";
 const HeaderDesc = () => {
   const [user, setUser]= useState(null)
   const [isModalOpen, setIsModalOpen] = useState(false);
-  
+
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
@@ -37,7 +37,7 @@ const HeaderDesc = () => {
           <p className="headerdesc__text">
             Миллионы компаний всех размеров используют Наш <br /> сервис онлайн
             и лично для приема платежей, отправки <br /> выплат, автоматизации
-            финансовых процессов и <br /> увеличения доходов.
+            финансовых процессов и <br /> увеличения дох одов.
           </p>
           {
             user?  <button className="headerdesc__button">Начать сейчас</button> : <button className="headerdesc__button" style={{backgroundColor:'rgb(213, 197, 207)', cursor:'no-drop'}} >Начать сейчас</button>
