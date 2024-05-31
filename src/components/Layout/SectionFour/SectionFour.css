@@ -1,5 +1,7 @@
 .sectionfour {
+  position: relative;
   background: linear-gradient(225deg, #313c59 0%, #161c2d 100%);
+  padding: 100px 0px;
 }
 
 .sectionfour__body {
@@ -7,9 +9,11 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  gap: 50px;
 }
 
 .sectionfour__title {
+  padding-top: 30px;
   color: white;
   font-size: 32px;
   font-weight: 700;
@@ -48,4 +52,12 @@
   line-height: 29px;
   letter-spacing: -0.20000000298023224px;
   text-align: left;
+}
+
+.sectionfour__all {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: -0.6000000238418579px;
+  color: rgba(104, 213, 133, 1);
 }

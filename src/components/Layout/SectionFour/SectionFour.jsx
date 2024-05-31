@@ -57,6 +57,7 @@ const SectionFour = () => {
               </div>
             </div>
           </div>
+          <span className="sectionfour__all">Все отзывы</span>
         </div>
       </div>
     </div>

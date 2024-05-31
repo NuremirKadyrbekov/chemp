@@ -7,7 +7,6 @@ const Navigation = () => {
         <div className="container">
             <div className="navigation__body">
                 <h1 className='navigation__logo'>Ы.М.У</h1>
-
                 <nav className='navigation__nav'>
                     <ul className="nav__list">
                         <li className="nav__item">Главная</li>

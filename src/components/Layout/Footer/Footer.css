@@ -1,0 +1,22 @@
+.footer {
+  border-top: 1px solid gray;
+}
+
+.footer__body {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+}
+
+.footer__text {
+  font-size: 15px;
+  line-height: 26px;
+  letter-spacing: -0.10000000149011612px;
+}
+
+.footer__icons {
+  display: flex;
+  gap: 15px;
+}

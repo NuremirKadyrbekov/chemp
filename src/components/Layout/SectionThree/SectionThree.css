@@ -1,3 +1,7 @@
+.sectionthree {
+  padding: 100px 0px;
+}
+
 .sectionthree__body {
   display: flex;
   flex-direction: column;
