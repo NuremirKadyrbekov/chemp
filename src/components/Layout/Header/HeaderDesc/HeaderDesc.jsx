@@ -40,7 +40,7 @@ const HeaderDesc = () => {
             финансовых процессов и <br /> увеличения дох одов.
           </p>
           {
-            user?  <button className="headerdesc__button">Начать сейчас</button> : <button className="headerdesc__button" style={{backgroundColor:'rgb(213, 197, 207)', cursor:'no-drop'}} >Начать сейчас</button>
+            user?  <button className="headerdesc__button" onClick={handleOpenModal}>Начать сейчас</button> : <button className="headerdesc__button" style={{backgroundColor:'rgb(213, 197, 207)', cursor:'no-drop'}} >Начать сейчас</button>
           }
 
           <img className="headerimgs__h2" src={h2} alt="" />
