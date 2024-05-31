@@ -11,6 +11,7 @@ const Login = ({ setUser }) => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   
+  let messageState='efg';
   
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,7 +22,7 @@ const Login = ({ setUser }) => {
         password
       );
       setUser(userCredential.user);
-      alert("Логин успешен!");
+      alert('Регистрация успешно пройдено')
     } catch (error) {
       setError("Error");
     }
@@ -55,6 +56,7 @@ const Login = ({ setUser }) => {
           {" "}
           Login in now
         </Button> 
+        <h3>{messageState}</h3>
         
       </form>
       <GoogleLogin setUser={setUser}    />

@@ -31,10 +31,32 @@ const Navigation = () => {
 
   return (
     <div className="navigation">
+       {user ? (
+                <>
+                  {user.email === 'admin@gmail.com' ? ( // Проверьте email пользователя
+                  <div style={{zIndex:'2'}}>
+
+                   <AdminPanel/>
+                  </div>    
+                  ) : (
+                   <div>
+
+                   </div>
+                  )}
+                </>
+              ) : (
+                <div>
+
+                </div>
+              )}
       <div className="container">
         <div className="navigation__body">
           <h1 className="navigation__logo">Ы.М.У</h1>
-
+          {/* {user.email === 'admin@gmail.com'?(
+            <AdminPanel/>
+        ):(
+            null
+        )} */}
           <nav className="navigation__nav">
             <ul className="nav__list">
               <li className="nav__item">Главная</li>
@@ -46,13 +68,10 @@ const Navigation = () => {
                   <div style={{zIndex:'2'}}>
                      <button
                       className="nav__item nav__button"
-                      style={{zIndex:'6'}}
                       onClick={handleLogout}
                     >
                       Выйти
                     </button>
-                    <AdminPanel/>
-                   
                   </div>    
                   ) : (
                     <button

@@ -5,12 +5,13 @@ import Google from "../../../sources/images/Google.webp";
 
 const GoogleLogin = ({ setUser }) => {
   const handleGoogleLogin = async () => {
+
     try {
       const userCredential = await signInWithPopup(auth, googleProvider);
       setUser(userCredential.user);
-      alert("Вход через Google успешен!");
+      alert('успешно')
     } catch (error) {
-      alert(`Ошибка входа через Google: ${error.message}`);
+      console.log(error)
     }
   };
 

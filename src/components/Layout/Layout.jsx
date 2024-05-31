@@ -8,7 +8,7 @@ import Footer from './Footer/Footer'
 
 const Layout = () => {
   return (
-    <div>
+    <div className='Main'>
         <Header />
         <SectionOne />
         <SectionTwo />

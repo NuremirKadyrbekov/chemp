@@ -1,0 +1,43 @@
+.container{
+    width: 700px;
+    height: 70px;
+    position: absolute;
+    margin-left: 90px;
+    /* margin-top: -300px;
+    margin-right: 900px; */
+    margin: 0;
+    padding: auto;
+    margin-left: 100px;
+    margin-top: -10px; 
+    display: flex;
+}
+.block1,.block2{
+    width: 100px;
+    height: 70px;
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Btn{
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: rgb(255, 255, 255);
+
+}
+.user{
+    width: 100%;
+    height: 40px;
+    border: 1px solid;
+    margin-bottom: 10px;
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+}
+.DelBtn{
+    color: red;
+    background: none;
+    
+}

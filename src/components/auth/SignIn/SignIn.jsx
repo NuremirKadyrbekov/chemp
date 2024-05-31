@@ -9,7 +9,10 @@ const Register = ({ setUser }) => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
+  
+
   const handleSubmit = async (e) => {
+
     e.preventDefault();
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
@@ -22,7 +25,7 @@ const Register = ({ setUser }) => {
       });
 
       setUser(user);
-      alert("Регистрация прошла успешно!");
+      alert('Регистрация успешно пройдено')
     } catch (error) {
       setError(error.message);
     }
