@@ -1,7 +1,7 @@
 import React from 'react'
-import bg from '../../../sources/images/h_bg.png'
-import h1 from '../../../sources/images/h_1.png'
-import phone from '../../../sources/images/h_phone.png'
+import bg from '../../../../sources/images/h_bg.png'
+import h1 from '../../../../sources/images/h_1.png'
+import phone from '../../../../sources/images/h_phone.png'
 import "./HeaderImages.css"
 
 const HeaderImages = () => {

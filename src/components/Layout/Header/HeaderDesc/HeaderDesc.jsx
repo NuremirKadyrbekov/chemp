@@ -1,6 +1,6 @@
 import React from "react";
 import "./HeaderDesc.css";
-import h2 from '../../../sources/images/h_2.png'
+import h2 from '../../../../sources/images/h_2.png'
 
 const HeaderDesc = () => {
   return (

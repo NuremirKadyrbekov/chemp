@@ -1,6 +1,6 @@
 import React from "react";
 import "./SectionTwo.css";
-import code from '../../sources/images/Card.png'
+import code from '../../../sources/images/Card.png'
 
 const SectionTwo = () => {
   return (

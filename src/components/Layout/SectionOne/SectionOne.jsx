@@ -1,9 +1,9 @@
 import React from "react";
 import "./SectionOne.css";
-import cart from "../../sources/images/cart.png";
-import radar from "../../sources/images/radar.png";
-import phone from "../../sources/images/phone.png";
-import phone2 from "../../sources/images/phone2.png";
+import cart from "../../../sources/images/cart.png";
+import radar from "../../../sources/images/radar.png";
+import phone from "../../../sources/images/phone.png";
+import phone2 from "../../../sources/images/phone2.png";
 
 const SectionOne = () => {
   return (
