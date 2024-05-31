@@ -1,0 +1,40 @@
+.sectionthree__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sectionthree__title {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 58px;
+  letter-spacing: -1.7999999523162842px;
+  text-align: center;
+}
+
+.sectionthree__text {
+  color: rgba(22, 28, 45, 1);
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: -0.20000000298023224px;
+  text-align: center;
+}
+
+.sectionthree__cards {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sectionthree__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sectionthree__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
