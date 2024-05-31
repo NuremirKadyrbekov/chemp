@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./HeaderDesc.css";
-import h2 from '../../../../sources/images/h_2.png'
+import h2 from "../../../../sources/images/h_2.png";
 import PaymentModal from "../../../Payment/Payment";
 
 const HeaderDesc = () => {
@@ -26,9 +26,11 @@ const HeaderDesc = () => {
             и лично для приема платежей, отправки <br /> выплат, автоматизации
             финансовых процессов и <br /> увеличения доходов.
           </p>
-          <button className="headerdesc__button" onClick={handleOpenModal}>Начать сейчас</button>
+          <button className="headerdesc__button" onClick={handleOpenModal}>
+            Начать сейчас
+          </button>
 
-          <img className='headerimgs__h2' src={h2} alt="" />
+          <img className="headerimgs__h2" src={h2} alt="" />
           {isModalOpen && <PaymentModal onClose={handleCloseModal} />}
         </div>
       </div>

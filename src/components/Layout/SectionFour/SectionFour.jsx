@@ -1,9 +1,10 @@
 import React from "react";
-import './SectionFour.css';
+import "./SectionFour.css";
 import video from "../../../sources/images/VIdeo.png";
 import ava from "../../../sources/images/ava.png";
 import ava2 from "../../../sources/images/ava2.png";
 import ava3 from "../../../sources/images/ava3.png";
+import { FaArrowRight } from "react-icons/fa";
 
 const SectionFour = () => {
   return (
@@ -15,7 +16,8 @@ const SectionFour = () => {
           </div>
 
           <div className="sectionfour__title">
-            +1,749 команд поделились своим опытом <br /> использования нашего сервиса!
+            +1,749 команд поделились своим опытом <br /> использования нашего
+            сервиса!
           </div>
           <div className="sectionfour__comments">
             <div className="sectionfour__comment">
@@ -57,7 +59,9 @@ const SectionFour = () => {
               </div>
             </div>
           </div>
-          <span className="sectionfour__all">Все отзывы</span>
+          <span className="sectionfour__all">
+            Все отзывы <FaArrowRight /> 
+          </span>
         </div>
       </div>
     </div>

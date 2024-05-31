@@ -4,8 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "../../../auth/Login/Login";
 import { Button, Modal } from "react-bootstrap";
 import Register from "../../../auth/SignIn/SignIn";
-import { checkAuthState, auth } from '../../../../firebase';
-import AdminPanel from "../../../auth/admin/adminPanel";  
+import { checkAuthState, auth } from "../../../../firebase";
+import AdminPanel from "../../../auth/admin/adminPanel";
 
 const Navigation = () => {
   const [user, setUser] = useState(null);
@@ -16,7 +16,7 @@ const Navigation = () => {
   const handleLoginJoinShow = () => setShowLogin(true);
 
   useEffect(() => {
-    const storedUser = localStorage.getItem('user');
+    const storedUser = localStorage.getItem("user");
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
@@ -26,34 +26,40 @@ const Navigation = () => {
   const handleLogout = () => {
     auth.signOut();
     setUser(null);
-    localStorage.removeItem('user');
+    localStorage.removeItem("user");
   };
+
+  const [menuOpen, setMenuOpen] = useState(false);
+
 
   return (
     <div className="navigation">
       <div className="container">
         <div className="navigation__body">
-          <h1 className="navigation__logo">Ы.М.У</h1>
-
-          <nav className="navigation__nav">
+          <h1 className="navigation__logo">Logo</h1>
+          <div className="menu" onClick={() => setMenuOpen(!menuOpen)}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <nav className={menuOpen ? "open" : ""}>
             <ul className="nav__list">
               <li className="nav__item">Главная</li>
               <li className="nav__item">О нас</li>
               <li className="nav__item">Контакты</li>
               {user ? (
                 <>
-                  {user.email === 'admin@gmail.com' ? ( // Проверьте email пользователя
-                  <div style={{zIndex:'2'}}>
-                     <button
-                      className="nav__item nav__button"
-                      style={{zIndex:'6'}}
-                      onClick={handleLogout}
-                    >
-                      Выйти
-                    </button>
-                    <AdminPanel/>
-                   
-                  </div>    
+                  {user.email === "admin@gmail.com" ? ( // Проверьте email пользователя
+                    <div style={{ zIndex: "2" }}>
+                      <button
+                        className="nav__item nav__button"
+                        style={{ zIndex: "6" }}
+                        onClick={handleLogout}
+                      >
+                        Выйти
+                      </button>
+                      <AdminPanel />
+                    </div>
                   ) : (
                     <button
                       className="nav__item nav__button"
@@ -73,10 +79,16 @@ const Navigation = () => {
               )}
               <Modal show={showLogin} onHide={handleLoginJoinClose}>
                 <Modal.Header closeButton>
-                  <Modal.Title>{toggle ? "Login in now" : "Sign in now"}</Modal.Title>
+                  <Modal.Title>
+                    {toggle ? "Login in now" : "Sign in now"}
+                  </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                  {toggle ? <Login setUser={setUser} /> : <Register setUser={setUser} />}
+                  {toggle ? (
+                    <Login setUser={setUser} />
+                  ) : (
+                    <Register setUser={setUser} />
+                  )}
                 </Modal.Body>
                 <Modal.Footer>
                   <Button variant="secondary" onClick={handleLoginJoinClose}>

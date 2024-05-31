@@ -1,6 +1,8 @@
 .sectiontwo__body {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
   padding: 100px 0px;
 }
 
@@ -29,4 +31,18 @@
   font-weight: 400;
   line-height: 29px;
   letter-spacing: -0.20000000298023224px;
+}
+
+@media (max-width: 1153px) {
+  .sectiontwo__body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 100px 0px;
+  }
+
+  .sectiontwo__image img {
+    max-width: 500px;
+  }
 }

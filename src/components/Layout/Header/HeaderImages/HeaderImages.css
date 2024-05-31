@@ -75,17 +75,8 @@
   }
 }
 
-@media (max-width: 885px) {
+@media (max-width: 1050px) {
   .headerimgs {
-    position: relative;
-    z-index: 1;
-  }
-  .headerimgs__h1 {
-    display: none;
-  }
-}
-@media (max-width: 455px) {
-  .headerimgs__bg {
     display: none;
   }
 }

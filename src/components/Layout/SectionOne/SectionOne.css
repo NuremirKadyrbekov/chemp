@@ -33,3 +33,35 @@
 .sectionone__cart {
   position: absolute;
 }
+
+@media (max-width: 1200px) {
+  .sectionone__double {
+    display: none;
+  }
+}
+
+@media (max-width: 650px) {
+  .sectionone__images{
+    display: none;
+  }
+  .sectionone__title {
+    font-size: 48px;
+    line-height: 58px;
+  }
+  img {
+    display: none;
+  }
+}
+
+@media (max-width: 650px) {
+  .sectionone__images{
+    display: none;
+  }
+  .sectionone__title {
+    font-size: 38px;
+    line-height: 38px;
+  }
+  .sectionone__images img {
+    display: none;
+  }
+}
