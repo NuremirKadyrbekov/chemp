@@ -24,4 +24,6 @@
     background-color: rgb(231, 65, 65);
     padding: 15px 50px;
     border-radius: 6px;
+    cursor: pointer;
+    z-index: 2;
 }
