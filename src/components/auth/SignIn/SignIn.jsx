@@ -29,6 +29,7 @@ const Register = ({ setUser }) => {
 
       setUser(user);
       setAlert({ type: 'success', message: 'Успешная регистрация!', show: true });
+      
     } catch (error) {
       setAlert({ type: 'error', message: "Ошибка регистрации! ", show: true });
     }

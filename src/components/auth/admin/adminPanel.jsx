@@ -42,7 +42,7 @@ const AdminPanel = () => {
     <div className={Css.container}>
       <div className={Css.block1}>
         <button variant="primary" onClick={handleShow} className={Css.Btn}>
-          View all users <TiUserOutline/>
+          пользователи<TiUserOutline/>
         </button>
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
@@ -66,7 +66,7 @@ const AdminPanel = () => {
       </div>
       <div className={Css.block2}>
       <button variant="primary" onClick={handleShow1} className={Css.Btn}>
-      <AiOutlineBorderOuter/>
+    Платежи  <AiOutlineBorderOuter/>
         </button>
         <Modal show={show1} onHide={handleClose1}>
           <Modal.Header closeButton>
@@ -76,16 +76,7 @@ const AdminPanel = () => {
             
               
                 <div  className={Css.user}>
-                  2500$
-                </div>
-                <div  className={Css.user}>
-                  1200$
-                </div>
-                <div  className={Css.user}>
-                  341$
-                </div>
-                <div  className={Css.user}>
-                  21$
+                  300$
                 </div>
                 <div  className={Css.user}>
                   25$

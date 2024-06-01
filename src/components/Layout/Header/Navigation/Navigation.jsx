@@ -13,7 +13,7 @@ const Navigation = () => {
   const [toggle, setToggle] = useState(true);
 
   const handleLoginJoinClose = () => setShowLogin(false);
-  const handleLoginJoinShow = () => setShowLogin(true);
+  const handleLoginJoinShow = () =>  setShowLogin(true);
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
@@ -31,31 +31,25 @@ const Navigation = () => {
 
   const [menuOpen, setMenuOpen] = useState(false);
 
-
   return (
     <div className="navigation">
-       {user ? (
-                <>
-                  {user.email === 'admin@gmail.com' ? ( // Проверьте email пользователя
-                  <div style={{zIndex:'2'}}>
-
-                   <AdminPanel/>
-                  </div>    
-                  ) : (
-                   <div>
-
-                   </div>
-                  )}
-                </>
-              ) : (
-                <div>
-
-                </div>
-              )}
+      {user ? (
+        <>
+          {user.email === "admin@gmail.com" ? ( // Проверьте email пользователя
+            <div style={{ zIndex: "2" }}>
+              <AdminPanel />
+            </div>
+          ) : (
+            <div></div>
+          )}
+        </>
+      ) : (
+        <div></div>
+      )}
       <div className="container">
         <div className="navigation__body">
-          <h1 className="navigation__logo">Logo</h1>
-          
+          <h1 className="navigation__logo">ЫМУ</h1>
+
           <div className="menu" onClick={() => setMenuOpen(!menuOpen)}>
             <span></span>
             <span></span>
@@ -68,22 +62,30 @@ const Navigation = () => {
               <li className="nav__item">Контакты</li>
               {user ? (
                 <>
-                  {user.email === 'admin@gmail.com' ? ( // Проверьте email пользователя
-                  <div style={{zIndex:'2'}}>
-                     <button
-                      className="nav__item nav__button"
-                      onClick={handleLogout}
-                    >
-                      Выйти
-                    </button>
-                  </div>    
+                  {user.email === "admin@gmail.com" ? ( 
+                    
+                    <div style={{ zIndex: "2" }} className="AdminProfile">
+                      <button
+                        className="nav__item nav__button"
+                        onClick={handleLogout}
+                      >
+                        Выйти
+                      </button>
+                    <li className="nav__item admin">{user.email}</li>
+
+                    </div>
                   ) : (
-                    <button
+                    <div className="Profile">
+                       <button
                       className="nav__item nav__button"
                       onClick={handleLogout}
                     >
                       Выйти
                     </button>
+                    <li className="nav__item">{user.email}</li>
+                    </div>
+                   
+
                   )}
                 </>
               ) : (
@@ -92,9 +94,10 @@ const Navigation = () => {
                   onClick={handleLoginJoinShow}
                 >
                   Войти
+                  
                 </button>
               )}
-              <Modal show={showLogin} onHide={handleLoginJoinClose} >
+              <Modal show={showLogin} onHide={handleLoginJoinClose}>
                 <Modal.Header closeButton>
                   <Modal.Title>
                     {toggle ? "Войдите сейчас" : "Зарегистрируйтесь сейчас"}
@@ -108,10 +111,10 @@ const Navigation = () => {
                   )}
                 </Modal.Body>
                 <Modal.Footer>
-                  
                   <button
                     onClick={() => setToggle(!toggle)}
-                   className='toggleSign'>
+                    className="toggleSign"
+                  >
                     {toggle ? "Создать аккаунт" : "Войти в аккаунт"}
                   </button>
                 </Modal.Footer>

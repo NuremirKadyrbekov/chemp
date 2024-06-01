@@ -66,6 +66,22 @@ nav .nav__list .nav__button {
     justify-content: center;
     align-items: center;
 }
+.Profile{
+  display: flex;
+  align-items: center;
+  
+}
+.Profile li{
+  margin-left: 20px;
+}
+.admin{
+  color: #ff0000;
+  margin-left: 20px;
+}
+.AdminProfile{
+  display: flex;
+  align-items: center;
+}
 
 @media (max-width: 670px) {
     .menu {
