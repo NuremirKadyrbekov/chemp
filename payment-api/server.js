@@ -1,7 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const stripe = require('stripe')('');
+const stripe = require('stripe')('sk_test_51PMhOACUMKhi9B0vTn8652TuB1wymaJYpvwzu8HMqLDgnDF5AMFT57G0SMt2DGvSmR2UKWSMg4VYZqkGLSddaC7600HDBv4E38'); // Укажите ваш секретный ключ Stripe
+
+const swaggerJsdoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 
 const app = express();
 const port = 3001;
@@ -14,6 +17,27 @@ app.use((req, res, next) => {
   console.log(`${req.method} ${req.url}`);
   next();
 });
+
+// Настройка Swagger
+const swaggerOptions = {
+  swaggerDefinition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'Payment API',
+      version: '1.0.0',
+      description: 'API для управления платежами через Stripe',
+    },
+    servers: [
+      {
+        url: `http://localhost:${port}`,
+      },
+    ],
+  },
+  apis: ['./index.js'], // Убедитесь, что путь указан правильно
+};
+
+const swaggerDocs = swaggerJsdoc(swaggerOptions);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 /**
  * @swagger
@@ -145,7 +169,13 @@ app.get('/api/payment/:id', async (req, res) => {
   const { id } = req.params;
   try {
     const paymentIntent = await stripe.paymentIntents.retrieve(id);
-    res.json({ id: paymentIntent.id, amount: paymentIntent.amount, currency: paymentIntent.currency, description: paymentIntent.description, status: paymentIntent.status });
+    res.json({
+      id: paymentIntent.id,
+      amount: paymentIntent.amount,
+      currency: paymentIntent.currency,
+      description: paymentIntent.description,
+      status: paymentIntent.status,
+    });
   } catch (error) {
     res.status(404).json({ error: 'Payment not found' });
   }
