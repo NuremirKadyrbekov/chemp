@@ -55,6 +55,17 @@ nav .nav__list .nav__button {
     border-radius: 0.2rem;
 }
 
+.toggleSign{
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+    background: none;
+}
+.ModalAuth{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 @media (max-width: 670px) {
     .menu {

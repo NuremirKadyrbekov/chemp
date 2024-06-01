@@ -1,0 +1,10 @@
+.LoginInInputEmail, .LoginInInputPassword{
+    width: 200px;
+    height: 30px;
+    border-bottom: 1px solid;
+    margin-top: 10px;
+}
+.Btn{
+    margin-left: 45px;
+    margin-top: 10px;
+}

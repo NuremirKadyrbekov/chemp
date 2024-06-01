@@ -2,6 +2,8 @@ import React from "react";
 import { auth, googleProvider } from "../../../firebase";
 import { signInWithPopup } from "firebase/auth";
 import Google from "../../../sources/images/Google.webp";
+import Css from './Google.module.css'
+
 
 const GoogleLogin = ({ setUser }) => {
   const handleGoogleLogin = async () => {
@@ -18,10 +20,10 @@ const GoogleLogin = ({ setUser }) => {
    
    
   return (
-    <div onClick={handleGoogleLogin}>
+    <div onClick={handleGoogleLogin} className={Css.container} >
       <h3>Login with Google</h3>
       <div >
-        <img src={Google} alt="" style={{width:'40px'}} />
+        <img src={Google} alt="" style={{width:'20px'}} />
       </div>
     </div>
   );

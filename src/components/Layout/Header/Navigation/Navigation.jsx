@@ -94,13 +94,13 @@ const Navigation = () => {
                   Войти
                 </button>
               )}
-              <Modal show={showLogin} onHide={handleLoginJoinClose}>
+              <Modal show={showLogin} onHide={handleLoginJoinClose} >
                 <Modal.Header closeButton>
                   <Modal.Title>
-                    {toggle ? "Login in now" : "Sign in now"}
+                    {toggle ? "Войдите сейчас" : "Зарегистрируйтесь сейчас"}
                   </Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body className="ModalAuth">
                   {toggle ? (
                     <Login setUser={setUser} />
                   ) : (
@@ -108,15 +108,12 @@ const Navigation = () => {
                   )}
                 </Modal.Body>
                 <Modal.Footer>
-                  <Button variant="secondary" onClick={handleLoginJoinClose}>
-                    Закрыть
-                  </Button>
-                  <Button
-                    variant="secondary"
+                  
+                  <button
                     onClick={() => setToggle(!toggle)}
-                  >
+                   className='toggleSign'>
                     {toggle ? "Создать аккаунт" : "Войти в аккаунт"}
-                  </Button>
+                  </button>
                 </Modal.Footer>
               </Modal>
             </ul>

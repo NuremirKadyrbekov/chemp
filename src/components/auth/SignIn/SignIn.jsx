@@ -3,12 +3,15 @@ import { auth, db } from '../../../firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import GoogleLogin from '../GoogleLogin/GoggleLogin';
+import Css from './SignIn.module.css'
+import { Button } from 'react-bootstrap';
+import { Alert, Space } from 'antd';
 
 const Register = ({ setUser }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-
+  const [alert, setAlert] = useState({ type: '', message: '', show: false });
   
 
   const handleSubmit = async (e) => {
@@ -25,15 +28,15 @@ const Register = ({ setUser }) => {
       });
 
       setUser(user);
-      alert('Регистрация успешно пройдено')
+      setAlert({ type: 'success', message: 'Успешная регистрация!', show: true });
     } catch (error) {
-      setError(error.message);
+      setAlert({ type: 'error', message: "Ошибка регистрации! ", show: true });
     }
   };
 
   return (
     <div>
-      <h1>Sign In</h1>
+      {alert.show && <Alert message={alert.message} type={alert.type} showIcon closable afterClose={() => setAlert({ ...alert, show: false })} />}
       <form onSubmit={handleSubmit}>
         <div>
           <input
@@ -41,6 +44,7 @@ const Register = ({ setUser }) => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder='Email'
+            className={Css.SignInInputEmail}
           />
         </div>
         <div>
@@ -49,10 +53,11 @@ const Register = ({ setUser }) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder='Password'
+            className={Css.SignInInputPassword}
           />
         </div>
         {error && <p style={{ color: 'red' }}>{error}</p>}
-        <button type="submit">Sign in now</button>
+        <Button type="submit"  className={Css.Btn}>Войти</Button>
       </form>
       <GoogleLogin setUser={setUser} />
     </div>
