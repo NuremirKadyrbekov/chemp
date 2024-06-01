@@ -10,7 +10,7 @@ import AdminPanel from "../../../auth/admin/adminPanel";
 const Navigation = () => {
   const [user, setUser] = useState(null);
   const [showLogin, setShowLogin] = useState(false);
-  const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(true);
 
   const handleLoginJoinClose = () => setShowLogin(false);
   const handleLoginJoinShow = () => setShowLogin(true);
