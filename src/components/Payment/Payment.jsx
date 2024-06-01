@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
-const stripePromise = loadStripe('YOUR_STRIPE_PUBLIC_KEY'); // Замените 'YOUR_STRIPE_PUBLIC_KEY' на ваш публичный ключ Stripe
+const stripePromise = loadStripe('pk_test_51PMhOACUMKhi9B0vPjdiNkAuNlP5istonNUHVbiCtPzkYbruDN8cLXcOrRY5akn821GMYjxFN7IE9ZBJ2njAYllm00EIv097E9');
 
 const ModalOverlay = styled.div`
   position: fixed;
