@@ -1,10 +1,16 @@
+// src/components/PaymentModal.js
+
 import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+
+const stripePromise = loadStripe('YOUR_STRIPE_PUBLIC_KEY'); // Замените 'YOUR_STRIPE_PUBLIC_KEY' на ваш публичный ключ Stripe
 
 const ModalOverlay = styled.div`
   position: fixed;
-  z-index: 999;
+  z-index: 99;
   top: 0;
   left: 0;
   width: 100%;
@@ -33,8 +39,15 @@ const Input = styled.input`
   border-radius: 4px;
 `;
 
+const Label = styled.label`
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  text-align: left;
+`;
+
 const Button = styled.button`
-  margin: 5px;
+  margin: 10px 5px;
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
@@ -55,7 +68,16 @@ const ErrorMessage = styled.span`
   display: block;
 `;
 
-const PaymentModal = ({ onClose }) => {
+const CardElementContainer = styled.div`
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+`;
+
+const CheckoutForm = ({ onClose }) => {
+  const stripe = useStripe();
+  const elements = useElements();
   const [paymentId, setPaymentId] = useState('');
   const [status, setStatus] = useState('');
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -69,7 +91,11 @@ const PaymentModal = ({ onClose }) => {
   }, [paymentId]);
 
   const handlePayment = async (data) => {
-    const paymentData = { amount: data.amount, description: 'Test Payment' };
+    if (!stripe || !elements) {
+      return;
+    }
+
+    const paymentData = { amount: data.amount, currency: 'usd', description: 'Test Payment' };
 
     try {
       const response = await fetch('http://localhost:3001/api/payment', {
@@ -87,6 +113,22 @@ const PaymentModal = ({ onClose }) => {
       const result = await response.json();
       setPaymentId(result.id);
       setStatus(result.status);
+
+      const cardElement = elements.getElement(CardElement);
+      const { error, paymentIntent } = await stripe.confirmCardPayment(result.client_secret, {
+        payment_method: {
+          card: cardElement,
+          billing_details: {
+            name: data.cardHolder,
+          },
+        },
+      });
+
+      if (error) {
+        console.error(error.message);
+      } else {
+        setStatus(paymentIntent.status);
+      }
     } catch (error) {
       console.error('Payment error:', error);
     }
@@ -112,64 +154,40 @@ const PaymentModal = ({ onClose }) => {
       <ModalContent>
         <h2>Введите данные для оплаты</h2>
         <form onSubmit={handleSubmit(handlePayment)}>
-          <Input
-            type="text"
-            placeholder="Имя держателя карты"
-            {...register('cardHolder', { required: 'Имя держателя карты обязательно' })}
-          />
-          {errors.cardHolder && <ErrorMessage>{errors.cardHolder.message}</ErrorMessage>}
+          <div>
+            <Label htmlFor="cardHolder">Имя держателя карты</Label>
+            <Input
+              id="cardHolder"
+              type="text"
+              placeholder="Имя держателя карты"
+              {...register('cardHolder', { required: 'Имя держателя карты обязательно' })}
+            />
+            {errors.cardHolder && <ErrorMessage>{errors.cardHolder.message}</ErrorMessage>}
+          </div>
 
-          <Input
-            type="text"
-            placeholder="Номер карты"
-            {...register('cardNumber', { 
-              required: 'Номер карты обязателен', 
-              pattern: { 
-                value: /^[0-9]{16}$/, 
-                message: 'Номер карты должен состоять из 16 цифр' 
-              } 
-            })}
-          />
-          {errors.cardNumber && <ErrorMessage>{errors.cardNumber.message}</ErrorMessage>}
+          <div>
+            <Label htmlFor="cardNumber">Номер карты</Label>
+            <CardElementContainer>
+              <CardElement id="cardNumber" options={{ hidePostalCode: true }} />
+            </CardElementContainer>
+          </div>
 
-          <Input
-            type="text"
-            placeholder="Срок действия (MM/YY)"
-            {...register('expiryDate', { 
-              required: 'Срок действия обязателен', 
-              pattern: { 
-                value: /^(0[1-9]|1[0-2])\/?([0-9]{2})$/, 
-                message: 'Неправильный формат срока действия' 
-              } 
-            })}
-          />
-          {errors.expiryDate && <ErrorMessage>{errors.expiryDate.message}</ErrorMessage>}
-
-          <Input
-            type="text"
-            placeholder="CVV"
-            {...register('cvv', { 
-              required: 'CVV обязателен', 
-              pattern: { 
-                value: /^[0-9]{3,4}$/, 
-                message: 'CVV должен состоять из 3 или 4 цифр' 
-              } 
-            })}
-          />
-          {errors.cvv && <ErrorMessage>{errors.cvv.message}</ErrorMessage>}
-
-          <Input
-            type="text"
-            placeholder="Сумма"
-            {...register('amount', { 
-              required: 'Сумма обязательна', 
-              pattern: { 
-                value: /^[0-9]+(\.[0-9]{1,2})?$/, 
-                message: 'Неправильный формат суммы' 
-              } 
-            })}
-          />
-          {errors.amount && <ErrorMessage>{errors.amount.message}</ErrorMessage>}
+          <div>
+            <Label htmlFor="amount">Сумма</Label>
+            <Input
+              id="amount"
+              type="text"
+              placeholder="Сумма"
+              {...register('amount', { 
+                required: 'Сумма обязательна', 
+                pattern: { 
+                  value: /^[0-9]+(\.[0-9]{1,2})?$/, 
+                  message: 'Неправильный формат суммы' 
+                } 
+              })}
+            />
+            {errors.amount && <ErrorMessage>{errors.amount.message}</ErrorMessage>}
+          </div>
 
           <Button type="submit">Оплатить</Button>
         </form>
@@ -184,5 +202,11 @@ const PaymentModal = ({ onClose }) => {
     </ModalOverlay>
   );
 };
+
+const PaymentModal = ({ onClose }) => (
+  <Elements stripe={stripePromise}>
+    <CheckoutForm onClose={onClose} />
+  </Elements>
+);
 
 export default PaymentModal;
