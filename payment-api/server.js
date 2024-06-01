@@ -4,7 +4,7 @@ const cors = require('cors');
 const { v4: uuidv4 } = require('uuid');
 
 const app = express();
-const port = 3000;
+const port = 3001; // Порт должен совпадать с клиентским
 
 // Мидлвары
 app.use(bodyParser.json());
@@ -30,11 +30,10 @@ app.post('/api/payment', (req, res) => {
     status: 'pending'
   };
 
-  // Устанавливаем случайный статус через 5 секунд
+  // Изменение статуса через 5 секунд
   setTimeout(() => {
-    const status = Math.random() > 0.5 ? 'completed' : 'failed';
-    payments[id].status = status;
-    console.log(`Payment ${id} status updated to ${status}`);
+    payments[id].status = 'completed';
+    console.log(`Payment ${id} status updated to completed`);
   }, 5000);
 
   res.status(201).json({ id, status: 'pending' });
