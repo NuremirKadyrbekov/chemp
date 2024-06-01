@@ -72,7 +72,7 @@ const PaymentModal = ({ onClose }) => {
     const paymentData = { amount: data.amount, description: 'Test Payment' };
 
     try {
-      const response = await fetch('http://localhost:3001/api/payment', { // Проверьте, что порт 3001
+      const response = await fetch('http://localhost:3001/api/payment', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -94,7 +94,7 @@ const PaymentModal = ({ onClose }) => {
 
   const checkPaymentStatus = async () => {
     try {
-      const response = await fetch(`http://localhost:3001/api/payment/${paymentId}`); // Проверьте, что порт 3001
+      const response = await fetch(`http://localhost:3001/api/payment/${paymentId}`);
 
       if (!response.ok) {
         throw new Error('Failed to fetch payment status');
