@@ -1,6 +1,6 @@
 import React from "react";
 import "./SectionTwo.css";
-import code from "../../../sources/images/Card.png";
+import CodeSnippet from "./CodeSnippet";
 
 const SectionTwo = () => {
   return (
@@ -30,7 +30,7 @@ const SectionTwo = () => {
             </div>
           </div>
           <div className="sectiontwo__image">
-            <img src={code} alt="" />
+            <CodeSnippet />
           </div>
         </div>
       </div>

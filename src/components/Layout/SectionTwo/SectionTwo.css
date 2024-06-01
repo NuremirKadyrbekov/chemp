@@ -46,3 +46,9 @@
     max-width: 500px;
   }
 }
+
+@media (max-width: 583px) {
+  .sectiontwo__image {
+    max-width: 100%;
+  }
+}
